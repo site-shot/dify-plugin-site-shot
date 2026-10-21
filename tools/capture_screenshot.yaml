@@ -1,0 +1,95 @@
+identity:
+  name: capture_screenshot
+  author: site-shot
+  label:
+    en_US: Capture screenshot
+description:
+  human:
+    en_US: Turn a public web page URL into a PNG or JPEG screenshot file.
+  llm: Captures a screenshot of a public web page and returns it as an image file. Use it to see how a page looks. The only input is the page's public http or https URL.
+parameters:
+  - name: url
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: URL
+    human_description:
+      en_US: Public http:// or https:// address of the page. Addresses with a user name or password, local host names and private IP addresses are refused.
+    llm_description: Public http or https URL of the web page to capture.
+  - name: format
+    type: select
+    required: false
+    default: png
+    form: form
+    label:
+      en_US: Format
+    human_description:
+      en_US: PNG keeps every pixel; JPEG gives smaller files.
+    options:
+      - value: png
+        label:
+          en_US: PNG
+      - value: jpeg
+        label:
+          en_US: JPEG
+  - name: width
+    type: number
+    required: false
+    default: 1024
+    min: 100
+    max: 8000
+    form: form
+    label:
+      en_US: Width
+    human_description:
+      en_US: Browser window width in pixels, from 100 to 8000.
+  - name: height
+    type: number
+    required: false
+    default: 768
+    min: 100
+    max: 20000
+    form: form
+    label:
+      en_US: Height
+    human_description:
+      en_US: Browser window height in pixels, from 100 to 20000. Width x height may be at most 40 megapixels.
+  - name: full_page
+    type: boolean
+    required: false
+    default: false
+    form: form
+    label:
+      en_US: Full page
+    human_description:
+      en_US: Capture the whole scrolling page instead of the visible window, up to the max height.
+  - name: max_height
+    type: number
+    required: false
+    default: 20000
+    min: 100
+    max: 20000
+    form: form
+    label:
+      en_US: Max height
+    human_description:
+      en_US: Used only with Full page. Tallest screenshot in pixels, from 100 to 20000; longer pages are cut off. Width x max height may be at most 40 megapixels.
+output_schema:
+  type: object
+  properties:
+    format:
+      type: string
+      description: Image format of the screenshot file, png or jpeg.
+    image_width:
+      type: integer
+      description: Width of the screenshot in pixels.
+    image_height:
+      type: integer
+      description: Height of the screenshot in pixels.
+    size_bytes:
+      type: integer
+      description: Size of the screenshot file in bytes.
+extra:
+  python:
+    source: tools/capture_screenshot.py

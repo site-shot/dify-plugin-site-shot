@@ -1,0 +1,33 @@
+version: 0.1.0
+type: plugin
+author: site-shot
+name: site_shot
+label:
+  en_US: Site-Shot
+description:
+  en_US: Turn a public web page URL into a PNG or JPEG screenshot file for Dify workflows and agents.
+icon: icon.svg
+resource:
+  memory: 536870912
+  permission: {}
+plugins:
+  tools:
+    - provider/site_shot.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: 1.0.0
+network:
+  domains:
+    - api.site-shot.com
+created_at: 2026-10-19T00:00:00Z
+privacy: PRIVACY.md
+contact: support@site-shot.com
+verified: false
+repo: https://github.com/site-shot/dify-plugin-site-shot

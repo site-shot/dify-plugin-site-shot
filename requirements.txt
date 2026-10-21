@@ -1,0 +1,4 @@
+dify_plugin==0.10.2
+certifi==2026.10.18
+gevent==26.9.0
+Pillow==13.0.0

@@ -1,0 +1,25 @@
+# Only the files the plugin needs at runtime go into the .difypkg.
+
+# Secrets, local settings and version control
+.env
+.env.*
+.git/
+.gitignore
+.difyignore
+
+# Environments, caches, logs and OS files
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.log
+.DS_Store
+
+# Development-only files
+tests/
+requirements-dev.txt
+pytest.ini
+ruff.toml
+*.difypkg
