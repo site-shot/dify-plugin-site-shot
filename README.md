@@ -9,13 +9,14 @@ The plugin itself is free. The captures run on the [Site-Shot API](https://www.s
 | Stage | Status |
 |---|---|
 | Implementation | Done in this folder: one provider, one tool, built on `dify_plugin` 0.10.2 |
-| Offline acceptance | SDK-level tests against a local stand-in for the API, lint and type checks and a package built with the Dify plugin CLI 0.6.11. The original offline Marketplace validation was blocked by missing source-repository metadata and did not look up dependency vulnerabilities. The final publication package still needs fresh validation |
-| Native UI acceptance | Installed in an isolated Dify Community Edition 1.17.1 instance on October 21, 2026. Provider/tool registration, settings, protected credential field and `files: array[file]` output schema inspected. No real key or tool execution; the temporary environment was removed |
-| Live API acceptance | Pending: not run with a real API key; no real screenshot or end-to-end LLM workflow verified |
-| Marketplace publication | Pending: requires a real end-to-end test, final package validation, the Marketplace developer agreement and a submission |
-| Customers | None |
+| Offline acceptance | SDK-level stand-in tests, lint and type checks passed. The October 21 archive and a documentation-only October 26 archive passed local offline Marketplace validation without blocking findings; warnings remain. Any later distribution archive must be validated on its exact bytes. |
+| Native UI acceptance | Installed in isolated Dify Community Edition 1.17.1. On October 22, 2026, a real provider credential was accepted and two native tool runs returned one PNG viewport file and one JPEG full-page file. Both images were decoded and visually inspected; the temporary test environment was removed and the demo subscription restored |
+| Live API acceptance | Two Site-Shot captures succeeded through the installed native Dify tool on October 22, 2026. On October 26, one additional PNG capture succeeded through the official remote-debug path in isolated Dify Community Edition 1.17.1; its 1024×768 output was decoded and visually inspected, the demo subscription restored and the temporary environment removed. Dify Cloud, a downstream vision-LLM workflow and stitching of a genuinely long page remain unverified |
+| Marketplace publication | No Marketplace listing is confirmed. Isolated Dify Community Edition installed-package and remote-debug tests passed; Dify Cloud and downstream vision-LLM use remain untested. A matching final source and validated archive, publisher acceptance of the current Plugin Development Guidelines, a submission PR and Marketplace review are separate gates; a local validator pass or PR is not acceptance. |
+| Customers attributable to this plugin | None established |
 
 Source repository: [https://github.com/site-shot/dify-plugin-site-shot](https://github.com/site-shot/dify-plugin-site-shot).
+Support: [GitHub issues](https://github.com/site-shot/dify-plugin-site-shot/issues) or [support@site-shot.com](mailto:support@site-shot.com).
 
 ## Install
 
@@ -65,7 +66,7 @@ The tool returns:
 3. **LLM**: pick a vision-capable model, turn on **Vision** and select the tool node's `files` output as the image. Prompt, for example: "Describe the layout of this page and list any visible errors."
 4. **End**: output the LLM's text.
 
-The plugin was installed and its native output schema inspected, but this end-to-end recipe has not been run with a real API key or LLM.
+Two installed-package native Dify tool calls with a real API key returned image files on October 22, 2026; one official remote-debug native call returned a PNG in isolated Dify Community Edition 1.17.1 on October 26. This downstream vision-LLM recipe and Dify Cloud have not been tested.
 
 ## When a capture fails
 
