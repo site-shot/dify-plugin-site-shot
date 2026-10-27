@@ -12,7 +12,7 @@ The plugin itself is free. The captures run on the [Site-Shot API](https://www.s
 | Offline acceptance | SDK-level stand-in tests, lint and type checks passed. The October 21 archive and a documentation-only October 26 archive passed local offline Marketplace validation without blocking findings; warnings remain. Any later distribution archive must be validated on its exact bytes. |
 | Native UI acceptance | Installed in isolated Dify Community Edition 1.17.1. On October 22, 2026, a real provider credential was accepted and two native tool runs returned one PNG viewport file and one JPEG full-page file. Both images were decoded and visually inspected; the temporary test environment was removed and the demo subscription restored |
 | Live API acceptance | Two Site-Shot captures succeeded through the installed native Dify tool on October 22, 2026. On October 26, one additional PNG capture succeeded through the official remote-debug path in isolated Dify Community Edition 1.17.1; its 1024×768 output was decoded and visually inspected, the demo subscription restored and the temporary environment removed. Dify Cloud, a downstream vision-LLM workflow and stitching of a genuinely long page remain unverified |
-| Marketplace publication | No Marketplace listing is confirmed. Isolated Dify Community Edition installed-package and remote-debug tests passed; Dify Cloud and downstream vision-LLM use remain untested. A matching final source and validated archive, publisher acceptance of the current Plugin Development Guidelines, a submission PR and Marketplace review are separate gates; a local validator pass or PR is not acceptance. |
+| Marketplace publication | Version 0.1.0 is listed on the [Dify Marketplace](https://marketplace.dify.ai/plugin/site-shot/site_shot), verified on October 27, 2026. Installed-package and remote-debug acceptance were performed in isolated Dify Community Edition 1.17.1; Dify Cloud and downstream vision-LLM use remain untested. |
 | Customers attributable to this plugin | None established |
 
 Source repository: [https://github.com/site-shot/dify-plugin-site-shot](https://github.com/site-shot/dify-plugin-site-shot).
@@ -20,7 +20,9 @@ Support: [GitHub issues](https://github.com/site-shot/dify-plugin-site-shot/issu
 
 ## Install
 
-The plugin is not on the Dify Marketplace. From the directory containing a checkout named `dify-plugin-site-shot`, build a package with the [Dify plugin CLI](https://docs.dify.ai/en/develop-plugin/getting-started/cli):
+Install Site-Shot from its [Dify Marketplace listing](https://marketplace.dify.ai/plugin/site-shot/site_shot). API access requires a Site-Shot key and an eligible paid plan; the plugin itself is free.
+
+For local development, from the directory containing a checkout named `dify-plugin-site-shot`, build a package with the [Dify plugin CLI](https://docs.dify.ai/en/develop-plugin/getting-started/cli):
 
 ```bash
 dify plugin package ./dify-plugin-site-shot
